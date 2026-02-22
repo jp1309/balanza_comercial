@@ -22,6 +22,12 @@ PLOT_BG = "white"
 GRID_COLOR = "#f0f0f0"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] { min-width: 200px; max-width: 200px; }
+</style>
+""", unsafe_allow_html=True)
+
 # ── Diccionarios de colores ──────────────────────────────────────────
 
 PRODUCT_COLORS = {
