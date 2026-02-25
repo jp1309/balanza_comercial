@@ -419,7 +419,7 @@ TODOS_LABEL = "— Todos —"
 
 if region_sel == "Todas":
     country_list = sorted(country_map.keys())
-    default_pais = "ESTADOS UNIDOS"
+    default_pais = "COLOMBIA"
     if default_pais not in country_list:
         default_pais = country_list[0] if country_list else ""
     default_idx = country_list.index(default_pais) if default_pais in country_list else 0
