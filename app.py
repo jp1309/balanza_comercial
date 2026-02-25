@@ -489,15 +489,21 @@ imp_prev = df_imp_pais[df_imp_pais["Anio"] == ultimo_anio - 1]["CIF"].sum()
 delta_exp = ((exp_ult / exp_prev - 1) * 100) if exp_prev > 0 else None
 delta_imp = ((imp_ult / imp_prev - 1) * 100) if imp_prev > 0 else None
 
+st.markdown("""
+<style>
+[data-testid="stMetricValue"] { font-size: 1.2rem !important; }
+</style>
+""", unsafe_allow_html=True)
+
 k1, k2, k3, k4, k5 = st.columns(5)
-k1.metric("Exportaciones FOB", f"${exp_total:,.1f} M")
-k2.metric("Importaciones CIF", f"${imp_total:,.1f} M")
-k3.metric("Saldo Comercial", f"${saldo:,.1f} M",
+k1.metric("Exportaciones FOB", f"${exp_total:,.0f} M")
+k2.metric("Importaciones CIF", f"${imp_total:,.0f} M")
+k3.metric("Saldo Comercial", f"${saldo:,.0f} M",
           delta=f"{'Superávit' if saldo >= 0 else 'Déficit'}",
           delta_color="normal" if saldo >= 0 else "inverse")
-k4.metric(f"Exp. {ultimo_anio}", f"${exp_ult:,.1f} M",
+k4.metric(f"Exp. {ultimo_anio}", f"${exp_ult:,.0f} M",
           delta=f"{delta_exp:+.1f}%" if delta_exp is not None else "—")
-k5.metric(f"Imp. {ultimo_anio}", f"${imp_ult:,.1f} M",
+k5.metric(f"Imp. {ultimo_anio}", f"${imp_ult:,.0f} M",
           delta=f"{delta_imp:+.1f}%" if delta_imp is not None else "—",
           delta_color="inverse")
 
